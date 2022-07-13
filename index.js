@@ -47,7 +47,6 @@ Contact.addEventListener('click', () => {
   document.querySelector('.input').style.display = 'none';
   document.querySelector('.contact').style.display = 'block';
 });
-
 const displaytime = document.querySelector('.time');
 const shownDate = [Date().split(' ').splice(1, 4).join(' ')];
 displaytime.append(shownDate);
