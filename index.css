@@ -115,9 +115,9 @@ section {
 }
 
 .time {
-  color:white;
+  color: white;
   display: flex;
   justify-content: end;
-  margin-right: 10% ;
+  margin-right: 10%;
   margin-top: 1%;
 }
