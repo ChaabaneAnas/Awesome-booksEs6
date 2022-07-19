@@ -1,7 +1,6 @@
 /* eslint-disable import/extensions */
 import ui from './modules/ui.js';
 import store from './modules/store.js';
-// eslint-disable-next-line
 import { DateTime } from './modules/luxon.js';
 
 class Books {
@@ -24,8 +23,7 @@ document.querySelector('#form').addEventListener('submit', () => {
 const remove = document.querySelector('.bookList');
 remove.addEventListener('click', (e) => {
   store.deleteBooks(e.target.previousElementSibling.firstElementChild.textContent);
-  // eslint-disable-next-line
-  location.reload();
+  window.reload();
 });
 
 const List = document.querySelector('.List');
