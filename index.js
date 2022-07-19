@@ -23,7 +23,8 @@ document.querySelector('#form').addEventListener('submit', () => {
 const remove = document.querySelector('.bookList');
 remove.addEventListener('click', (e) => {
   store.deleteBooks(e.target.previousElementSibling.firstElementChild.textContent);
-  window.reload();
+  // eslint-disable-next-line
+  location.reload();
 });
 
 const List = document.querySelector('.List');
