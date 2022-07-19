@@ -1,6 +1,7 @@
-/*eslint-disable */
-import { ui } from './modules/ui.js';
-import { store } from './modules/store.js';
+/* eslint-disable import/extensions */
+import ui from './modules/ui.js';
+import store from './modules/store.js';
+import { DateTime } from './modules/luxon.js';
 
 class Books {
   constructor(Title, Author) {
@@ -11,17 +12,18 @@ class Books {
 
 // add book//
 document.addEventListener('DOMContentLoaded', ui.display());
-document.querySelector('#form').addEventListener('submit', (e) => {
+document.querySelector('#form').addEventListener('submit', () => {
   const Title = document.querySelector('#title').value;
   const Author = document.querySelector('#author').value;
-  const booksCollection = store.getBooksCollection();
   const book = new Books(Title, Author);
   store.setBook(book);
+  ui.clearFields();
 });
 // delete Book//
 const remove = document.querySelector('.bookList');
 remove.addEventListener('click', (e) => {
-  store.deleteBooks(e.target.previousElementSibling.firstElementChild);
+  store.deleteBooks(e.target.previousElementSibling.firstElementChild.textContent);
+  // eslint-disable-next-line
   location.reload();
 });
 
@@ -39,6 +41,7 @@ List.addEventListener('click', () => {
   document.querySelector('.book-list-container').style.display = 'block';
   document.querySelector('.input').style.display = 'none';
   document.querySelector('.contact').style.display = 'none';
+  // eslint-disable-next-line
   location.reload();
 });
 
@@ -48,6 +51,6 @@ Contact.addEventListener('click', () => {
   document.querySelector('.contact').style.display = 'block';
 });
 
-const displaytime = document.querySelector('.time');
-const shownDate = [Date().split(' ').splice(1, 4).join(' ')];
-displaytime.append(shownDate);
+const dt = DateTime.now();
+const newDate = document.querySelector('.time');
+newDate.innerHTML = `${dt.toLocaleString(DateTime.DATETIME_MED)}`;

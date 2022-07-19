@@ -1,5 +1,4 @@
-/*eslint-disable */
-export class store {
+export default class store {
  static getBooksCollection = () => {
    let booksCollection;
    if (localStorage.getItem('booksCollection') === null) {
@@ -14,9 +13,13 @@ export class store {
     localStorage.setItem('booksCollection', JSON.stringify(booksCollection));
   }
 
-  static deleteBooks = (e) => {
+  static deleteBooks = (el) => {
     const booksCollection = store.getBooksCollection();
-    booksCollection.splice(e, 1);
+    booksCollection.forEach((book, i) => {
+      if (el === book.title) {
+        booksCollection.splice(i, 1);
+      }
+    });
     localStorage.setItem('booksCollection', JSON.stringify(booksCollection));
   }
 }

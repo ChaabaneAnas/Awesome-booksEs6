@@ -1,7 +1,6 @@
-/*eslint-disable */
-import { store } from './store.js';
-
-export class ui {
+// eslint-disable-next-line
+import store from './store.js'; 
+export default class ui {
     static display = () => {
       const booksCollection = store.getBooksCollection();
       booksCollection.forEach((book) => {
@@ -18,5 +17,9 @@ export class ui {
         bookList.appendChild(bookFrame);
       });
     }
-  static removeBook
+
+  static clearFields = () => {
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+  }
 }
