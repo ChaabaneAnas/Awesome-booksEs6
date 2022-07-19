@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import ui from './modules/ui.js';
 import store from './modules/store.js';
+// eslint-disable-next-line
 import { DateTime } from './modules/luxon.js';
 
 class Books {
