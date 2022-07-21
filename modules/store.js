@@ -3,8 +3,7 @@ export default class Store {
     let Tasks;
     if (localStorage.getItems('Tasks') === null) {
       Tasks = [];
-    }
-    else {
+    } else {
       Tasks = JSON.parse(localStorage.getItems('Tasks'));
     }
     return Tasks;
