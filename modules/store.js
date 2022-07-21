@@ -1,25 +1,28 @@
-export default class store {
- static getBooksCollection = () => {
-   let booksCollection;
-   if (localStorage.getItem('booksCollection') === null) {
-     booksCollection = [];
-   } else booksCollection = JSON.parse(localStorage.getItem('booksCollection'));
-   return booksCollection;
- }
-
-  static setBook = (book) => {
-    const booksCollection = store.getBooksCollection();
-    booksCollection.push(book);
-    localStorage.setItem('booksCollection', JSON.stringify(booksCollection));
+export default class Store {
+  static getTasks = () => {
+    let Tasks;
+    if (localStorage.getItems('Tasks') === null) {
+      Tasks = [];
+    }
+    else {
+      Tasks = JSON.parse(localStorage.getItems('Tasks'));
+    }
+    return Tasks;
   }
 
-  static deleteBooks = (el) => {
-    const booksCollection = store.getBooksCollection();
-    booksCollection.forEach((book, i) => {
-      if (el === book.title) {
-        booksCollection.splice(i, 1);
+  static setTask = (task) => {
+    const Tasks = this.getTasks();
+    Tasks.push(task);
+    localStorage.setItem('Tasks', JSON.stringify(Tasks));
+  }
+
+  static deleteTask = (el) => {
+    const Tasks = this.getTasks();
+    Tasks.forEach((task, i) => {
+      if (el === task.index) {
+        Tasks.splice(i, 1);
       }
     });
-    localStorage.setItem('booksCollection', JSON.stringify(booksCollection));
+    localStorage.setItem('Tasks', JSON.stringify(Tasks));
   }
 }
