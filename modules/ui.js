@@ -1,8 +1,8 @@
 // eslint-disable-next-line
-import store from './store.js'; 
+import Store from './store.js'; 
 export default class ui {
     static display = () => {
-      const booksCollection = store.getBooksCollection();
+      const booksCollection = Store.getBooksCollection();
       booksCollection.forEach((book) => {
         const bookList = document.querySelector('.bookList');
         const bookFrame = document.createElement('div');

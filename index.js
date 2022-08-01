@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import ui from './modules/ui.js';
-import store from './modules/store.js';
+import Store from './modules/store.js';
 import { DateTime } from './modules/luxon.js';
 
 class Books {
@@ -16,13 +16,13 @@ document.querySelector('#form').addEventListener('submit', () => {
   const Title = document.querySelector('#title').value;
   const Author = document.querySelector('#author').value;
   const book = new Books(Title, Author);
-  store.setBook(book);
+  Store.setBook(book);
   ui.clearFields();
 });
 // delete Book//
 const remove = document.querySelector('.bookList');
 remove.addEventListener('click', (e) => {
-  store.deleteBooks(e.target.previousElementSibling.firstElementChild.textContent);
+  Store.deleteBooks(e.target.previousElementSibling.firstElementChild.textContent);
   // eslint-disable-next-line
   location.reload();
 });
