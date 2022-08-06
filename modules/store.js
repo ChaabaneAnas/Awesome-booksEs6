@@ -1,27 +1,27 @@
 export default class Store {
   static getBooksCollection = () => {
-    let BooksCollection;
-    if (localStorage.getItem('BooksCollection') === null) {
-      BooksCollection = [];
+     let booksCollection;
+    if (localStorage.getItem('booksCollection') === null) {
+      booksCollection = [];
     } else {
-      BooksCollection = JSON.parse(localStorage.getItems('Tasks'));
+      booksCollection = JSON.parse(localStorage.getItem('booksCollection'));
     }
-    return BooksCollection;
+    return booksCollection;
   }
 
   static setBook = (book) => {
-    const BooksCollection = this.getBooksCollection();
-    BooksCollection.push(book);
-    localStorage.setItem('BooksCollection', JSON.stringify(BooksCollection));
+    const booksCollection = this.getBooksCollection();
+    booksCollection.push(book);
+    localStorage.setItem('booksCollection', JSON.stringify(booksCollection));
   }
 
   static deleteBooks = (el) => {
-    const BooksCollection = this.getBooksCollection();
-    BooksCollection.forEach((book, i) => {
+    const booksCollection = this.getBooksCollection();
+    booksCollection.forEach((book, i) => {
       if (el === book.title) {
-        BooksCollection.splice(i, 1);
+        booksCollection.splice(i, 1);
       }
     });
-    localStorage.setItem('BooksCollection', JSON.stringify(BooksCollection));
+    localStorage.setItem('booksCollection', JSON.stringify(booksCollection));
   }
 }
