@@ -1,6 +1,6 @@
 export default class Store {
   static getBooksCollection = () => {
-     let booksCollection;
+    let booksCollection;
     if (localStorage.getItem('booksCollection') === null) {
       booksCollection = [];
     } else {
