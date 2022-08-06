@@ -2,9 +2,10 @@
 import store from './store.js'; 
 export default class ui {
     static display = () => {
+      const bookList = document.querySelector('.bookList');
+      bookList.innerHTML = '';
       const booksCollection = store.getBooksCollection();
       booksCollection.forEach((book) => {
-        const bookList = document.querySelector('.bookList');
         const bookFrame = document.createElement('div');
         bookFrame.classList.add('bookFrame');
         bookFrame.innerHTML = `

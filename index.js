@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import ui from './modules/ui.js';
-import store from './modules/store.js';
+import Store from './modules/store.js';
 import { DateTime } from './modules/luxon.js';
 
 class Books {
@@ -16,15 +16,15 @@ document.querySelector('#form').addEventListener('submit', () => {
   const Title = document.querySelector('#title').value;
   const Author = document.querySelector('#author').value;
   const book = new Books(Title, Author);
-  store.setBook(book);
+  Store.setBook(book);
   ui.clearFields();
+  ui.display();
 });
 // delete Book//
 const remove = document.querySelector('.bookList');
 remove.addEventListener('click', (e) => {
-  store.deleteBooks(e.target.previousElementSibling.firstElementChild.textContent);
-  // eslint-disable-next-line
-  location.reload();
+  Store.deleteBooks(e.target.previousElementSibling.firstElementChild.textContent);
+  ui.display();
 });
 
 const List = document.querySelector('.List');
@@ -41,8 +41,6 @@ List.addEventListener('click', () => {
   document.querySelector('.book-list-container').style.display = 'block';
   document.querySelector('.input').style.display = 'none';
   document.querySelector('.contact').style.display = 'none';
-  // eslint-disable-next-line
-  location.reload();
 });
 
 Contact.addEventListener('click', () => {
