@@ -2,8 +2,11 @@
 
 # AwesomebooksES6
 
-> This the same project as the previous Awesomebooks 
-but using Es6 features and syntax
+> a simple web application to add remove and show off your bookList
+
+- Add a book
+- Remove a book
+- save changes in LocalStoraage
 
 
 ## Built With
@@ -21,7 +24,9 @@ but using Es6 features and syntax
 
 To get a local copy up and running follow these simple example steps.
 
-run git clone git@github.com:ChaabaneAnas/Awesome-booksEs6.git
+ - Copy the Project Link,
+ - run in your terminal: Git clone (copyed link),
+ - browse to the folder and there u go.
 
 
 
